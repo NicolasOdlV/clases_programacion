@@ -10,11 +10,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 int validarFloat(char* pCadena);
 int getFloat(float* pResultado);
 
 int main(void) {
-
+	setbuf(stdout,NULL);
 	float precio;
 
 	printf("Ingrese un precio: ");
@@ -68,15 +70,13 @@ int validarFloat(char* pCadena)
 }
  int getFloat(float* pResultado)
 {
-	 setbuf(stdout,NULL);
 	char buffer[128];
 	int retorno=0;
 
 	if(pResultado!=NULL)
 	{
-		fflush(stdin);
-		scanf("%s",buffer);
-
+		fgets(buffer,sizeof(buffer),stdin);
+		buffer[strlen(buffer)-1]='\0';
 
 		if(validarFloat(buffer)==1)
 		{
