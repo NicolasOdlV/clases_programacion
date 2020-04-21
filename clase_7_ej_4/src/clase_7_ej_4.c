@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : clase_7_ej_3.c
+ Name        : clase_7_ej_4.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
@@ -10,25 +10,22 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define LEN 8
-
 int validarFloat(char* pCadena);
+int getFloat(float* pResultado);
 
 int main(void) {
-	setbuf(stdout,NULL);
-	char numero[LEN];
 
-	printf("Ingrese numero: ");
-	fflush(stdin);
-	scanf("%s",numero);
+	float precio;
 
-	if(validarFloat(numero)==1)
+	printf("Ingrese un precio: ");
+
+	if(getFloat(&precio)==1)
 	{
-		printf("\n%.3f",atof(numero));
+		printf("El precio es valido: %.3f",precio);
 	}
 	else
 	{
-		printf("No es un numero");
+		printf("Valor incorrecto");
 	}
 	return EXIT_SUCCESS;
 }
@@ -67,5 +64,25 @@ int validarFloat(char* pCadena)
 		}
 	}
 
+	return retorno;
+}
+ int getFloat(float* pResultado)
+{
+	 setbuf(stdout,NULL);
+	char buffer[128];
+	int retorno=0;
+
+	if(pResultado!=NULL)
+	{
+		fflush(stdin);
+		scanf("%s",buffer);
+
+
+		if(validarFloat(buffer)==1)
+		{
+			*pResultado=atof(buffer);
+			retorno=1;
+		}
+	}
 	return retorno;
 }
