@@ -10,9 +10,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "utn.h"
-#define CANT 31
+//#define CANT 31
+#define LEN 8
 
+static int getFloat(char* pResultado);
+
+static int esNumericoFlotante(char* cadena);
+
+static int myGets(char* cadena, int longitud);
 
 
 int main(void) {
@@ -37,6 +44,7 @@ do
 	}
 */
 	//Ejercicio 2
+/*
 	setbuf(stdout,NULL);
 	float dias[CANT];
 	int opcion;
@@ -85,5 +93,69 @@ do
 		}
 
 	}while(opcion!=3);
+	*/
+	// ejercicio 3
+	char cadena[LEN];
+
+	if((getFloat(cadena))==0)
+	{
+		printf("%.3f", atof(cadena));
+	}
+
 	return EXIT_SUCCESS;
+}
+
+static int getFloat(char* pResultado)
+{
+	setbuf(stdout,NULL);
+	int retorno=-1;
+	char buffer[20];
+
+	printf("Ingrese un numero decimal: ");
+	fflush(stdin);
+	scanf("%s",buffer);
+
+
+
+	if(myGets(buffer, sizeof(buffer))==0  && esNumericoFlotante(buffer)==1)
+	{
+		retorno=0;
+	}
+
+	return retorno;
+}
+
+static int esNumericoFlotante(char* cadena)
+{//          0 MAL |---------Return--------|  1 BIEN
+	int retorno=1;
+	int acumuladorPunto=0;
+	int i=0;
+
+
+	if((cadena[0] == '-') || (cadena[0] == '+') || (cadena[0] == '.'))
+	{
+		i=1;
+	}
+
+	for(;cadena[i] != '\0';i++)
+	{
+		if(cadena[i]<'0'||cadena[i]>'9'||acumuladorPunto>0)
+		{
+			retorno=0;
+			break;
+		}
+		if(cadena[i]=='.')
+		{
+			acumuladorPunto++;
+		}
+	}
+	return retorno;
+}
+static int myGets(char* cadena, int longitud)
+{
+	fflush(stdin);
+	fgets(cadena,longitud,stdin);
+	cadena[strlen(cadena)-1]= '\0';
+
+	return 0;
 }
