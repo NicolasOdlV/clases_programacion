@@ -26,6 +26,6 @@ int ordenarArrayFloat(float* pArray, int len);
 
 int calcularMayor(int* pNumeroMayor,int numero1, int numero2);
 int borrarImpares(int* pNumInt,int len);
-
+int contarPalabras(char* pFrase,int len,int* pCantPalabras);
 
 #endif /* UTN_H_ */

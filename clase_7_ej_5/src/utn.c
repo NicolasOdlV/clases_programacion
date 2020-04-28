@@ -341,4 +341,28 @@ int borrarImpares(int* pNumInt,int len)
 	}
 	return retorno;
 }
+int contarPalabras(char* pFrase,int len,int* pCantPalabras)
+{
+	int i;
+	int contadorPalabras=0;
+	int retorno=-1;
+
+	if(pFrase != NULL && len>0 && pCantPalabras != NULL )
+	{
+		for(i=0;i<len && pFrase[i]!='\0';i++)
+		{
+			retorno=0;
+			if(pFrase[i]==' ')
+			{
+				contadorPalabras++;
+			}
+			if(pFrase[i+1]=='\0'&&pFrase[i]!=' ')
+			{
+				contadorPalabras++;
+			}
+		}
+		*pCantPalabras= contadorPalabras;
+	}
+	return retorno;
+}
 

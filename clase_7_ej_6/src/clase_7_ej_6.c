@@ -39,14 +39,12 @@ int contarPalabras(char* pFrase,int len,int* pCantPalabras)
 			{
 				contadorPalabras++;
 			}
-			if(pFrase[i+1]=='\0')
+			if(pFrase[i+1]=='\0'&&pFrase[i]!=' ')
 			{
 				contadorPalabras++;
 			}
 		}
 		*pCantPalabras= contadorPalabras;
 	}
-
-
 	return retorno;
 }
