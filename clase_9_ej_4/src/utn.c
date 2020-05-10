@@ -291,7 +291,7 @@ static int esNombre(char* cadena,int longitud)
 static int getString(char* cadena, int longitud)
 {
 	int retorno=-1;
-	char bufferString[15]; // *****************************
+	char bufferString[15];
 
 	if(cadena != NULL && longitud > 0)
 	{

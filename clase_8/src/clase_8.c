@@ -26,7 +26,7 @@ int main(void) {
 		}
 
 		*/
-
+	/*
 		float numerin;
 		if(utn_getNumeroFlotante(&numerin, "\nIngrese un numero entre 0 y 5:  ","\nEl numero es erroneo",0,5.0,2) == 0)
 				{
@@ -36,8 +36,36 @@ int main(void) {
 				{
 					printf("\nEl dato ingresado es erroneo, sin reintentos disponibles");
 				}
-
-
+*/
+	char opcion;
+	if(utn_getCaracter(&opcion, "\na)Imprimir letra A\nb)Imprimir letra B\nc)Imprimir letra C\nd)Imprimir letra D\ne)Imprimir letra E\nIngrese la letra de la opcion:  ","\nLetra de la opcion invalida",'a','e',2) == 0)
+					{
+						switch(opcion)
+						{
+						case 'a':
+								printf("\nLetra a");
+							break;
+						case 'b':
+							printf("\nLetra b");
+							break;
+						case 'c':
+							printf("\nLetra c");
+							break;
+						case 'd':
+							printf("\nLetra d");
+							break;
+						case 'e':
+							printf("\nLetra e");
+							break;
+						default:
+							printf("\nIntentelo nuevamente");
+							break;
+						}
+					}
+					else
+					{
+						printf("\nEl dato ingresado es erroneo, sin reintentos disponibles");
+					}
 
 	return EXIT_SUCCESS;
 }
