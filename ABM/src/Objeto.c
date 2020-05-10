@@ -16,7 +16,7 @@ int obj_imprimir(Objeto* auxObjeto)
 	if(auxObjeto!=NULL && auxObjeto->isEmpty ==0)
 	{
 		retorno=0;
-		printf("\n%s\t%s\t%d\t%f\t%c",auxObjeto->str1,auxObjeto->str2,auxObjeto->entero,auxObjeto->decimal,auxObjeto->caracter);
+		printf("\nID:%d\t\tstr1:%s\t\tstr2:%s\t\tnumero:%d\t\tdecimal:%.3f\t\tcaracter:%c",auxObjeto->id,auxObjeto->str1,auxObjeto->str2,auxObjeto->entero,auxObjeto->decimal,auxObjeto->caracter);
 	}
 
 	return retorno;

@@ -66,7 +66,10 @@ do{
 					}
 					break;
 				case 4:
-					obj_ordenarPorNombre(bufferObjeto,CANT_OBJ);
+					if(obj_ordenarPorNombre(bufferObjeto,CANT_OBJ)==0)
+					{
+						printf("\nOrdenamiento con exito");
+					}
 					break;
 				case 5:
 					obj_imprimirArray(bufferObjeto,CANT_OBJ);
